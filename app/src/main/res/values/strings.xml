@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">CaloriesCounter</string>
+
+    <string name="common_calories_value">%s kcal</string>
+    <string name="common_calories">kcal</string>
+    <string name="common_ok">OK</string>
+    <string name="common_cancel">отмена</string>
+
+    <string name="main_header_title">Nutrition</string>
+    <string name="main_eating_title">Eating:</string>
+    <string name="main_goal_title">Calories Goal:</string>
+    <string name="main_burn_title">Burn:</string>
+    <string name="main_total_title">Total:</string>
+    <string name="main_breakfast">BREAKFAST</string>
+    <string name="main_lunch">LUNCH</string>
+    <string name="main_dinner">DINNER</string>
+    <string name="main_add">Введите количество калорий</string>
+
+</resources>

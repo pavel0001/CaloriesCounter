@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    tools:context=".ui.MainActivity">
+
+    <TextView
+        style="@style/CaloriesTextBold.Primary.XHuge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:text="@string/main_header_title"
+        app:layout_constraintBottom_toTopOf="@id/am_guideline_header_bottom"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/am_goal_title"
+        style="@style/CaloriesText.Primary.Normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/main_goal_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/am_guideline_header_bottom" />
+
+    <TextView
+        android:id="@+id/am_goal_value"
+        style="@style/CaloriesTextBold.Primary.Large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        app:layout_constraintBaseline_toBaselineOf="@id/am_goal_title"
+        app:layout_constraintStart_toEndOf="@id/am_goal_title"
+        tools:text="@string/common_calories_value" />
+
+    <TextView
+        android:id="@+id/am_eating_title"
+        style="@style/CaloriesText.Primary.Normal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="start"
+        android:text="@string/main_eating_title"
+        app:layout_constraintEnd_toEndOf="@id/am_goal_title"
+        app:layout_constraintStart_toStartOf="@id/am_goal_title"
+        app:layout_constraintTop_toBottomOf="@id/am_goal_title" />
+
+    <TextView
+        android:id="@+id/am_eating_value"
+        style="@style/CaloriesTextBold.Primary.Large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        app:layout_constraintBaseline_toBaselineOf="@id/am_eating_title"
+        app:layout_constraintStart_toEndOf="@id/am_eating_title"
+        tools:text="@string/common_calories_value" />
+
+    <TextView
+        android:id="@+id/am_burn_title"
+        style="@style/CaloriesText.Primary.Normal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="start"
+        android:text="@string/main_burn_title"
+        app:layout_constraintEnd_toEndOf="@id/am_eating_title"
+        app:layout_constraintStart_toStartOf="@id/am_eating_title"
+        app:layout_constraintTop_toBottomOf="@id/am_eating_title" />
+
+    <TextView
+        android:id="@+id/am_burn_value"
+        style="@style/CaloriesTextBold.Primary.Large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        app:layout_constraintBaseline_toBaselineOf="@id/am_burn_title"
+        app:layout_constraintStart_toEndOf="@id/am_burn_title"
+        tools:text="@string/common_calories_value" />
+
+    <TextView
+        android:id="@+id/am_total_title"
+        style="@style/CaloriesText.Primary.Normal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="18dp"
+        android:text="@string/main_total_title"
+        app:layout_constraintBaseline_toBaselineOf="@id/am_goal_title"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/am_total"
+        style="@style/CaloriesTextBold.Primary.Giant"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:includeFontPadding="false"
+        app:layout_constraintEnd_toEndOf="@id/am_total_title"
+        app:layout_constraintTop_toBottomOf="@id/am_total_title"
+        tools:text="712" />
+
+    <TextView
+        style="@style/CaloriesTextBold.Primary.Large"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-10dp"
+        android:text="@string/common_calories"
+        app:layout_constraintEnd_toEndOf="@id/am_total_title"
+        app:layout_constraintTop_toBottomOf="@id/am_total" />
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/am_chart"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/am_guideline_chart_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/am_burn_value" />
+
+    <by.valtorn.caloriescounter.ui.EatingCardView
+        android:id="@+id/am_eating_card_breakfast"
+        style="@style/CaloriesEatingCard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@id/am_eating_card_lunch"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/am_guideline_chart_bottom" />
+
+    <by.valtorn.caloriescounter.ui.EatingCardView
+        android:id="@+id/am_eating_card_lunch"
+        style="@style/CaloriesEatingCard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="25dp"
+        app:layout_constraintEnd_toStartOf="@id/am_eating_card_dinner"
+        app:layout_constraintStart_toEndOf="@id/am_eating_card_breakfast"
+        app:layout_constraintTop_toBottomOf="@id/am_guideline_chart_bottom" />
+
+    <by.valtorn.caloriescounter.ui.EatingCardView
+        android:id="@+id/am_eating_card_dinner"
+        style="@style/CaloriesEatingCard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/am_eating_card_lunch"
+        app:layout_constraintTop_toBottomOf="@id/am_guideline_chart_bottom" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/am_guideline_header_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/am_guideline_chart_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.61" />
+</androidx.constraintlayout.widget.ConstraintLayout>

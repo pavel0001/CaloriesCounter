@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--little-->
+    <dimen name="font_size_little">10sp</dimen>
+    <!--small-->
+    <dimen name="font_size_small">12sp</dimen>
+    <!--pre-normal-->
+    <dimen name="font_size_normal">13sp</dimen>
+    <!--large-->
+    <dimen name="font_size_large">18sp</dimen>
+    <!--huge-->
+    <dimen name="font_size_huge">24sp</dimen>
+    <!--xxhuge-->
+    <dimen name="font_size_xhuge">30sp</dimen>
+    <!--xgiant-->
+    <dimen name="font_size_giant">48sp</dimen>
+
+    <dimen name="eating_card_width">90dp</dimen>
+    <dimen name="eating_card_height">170dp</dimen>
+
+</resources>
