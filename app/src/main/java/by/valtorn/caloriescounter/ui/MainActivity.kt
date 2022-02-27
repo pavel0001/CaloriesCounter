@@ -78,8 +78,8 @@ class MainActivity : AppCompatActivity() {
                 amBurnValue.text = burn.toString()
                 amEatingValue.text = it?.getEatingCalories().toString()
                 amTotal.text = it?.getEatingCalories()?.minus(burn)?.positiveOrNul().toString()
-
                 amEatingCardBreakfast.setupEatingView(time = it?.breakfastTime, calories = it?.breakfastCalories, eatingName = getString(R.string.main_breakfast)) {
+                    viewModel.selectEating(MainVM.EatingType.BREAKFAST)
                     MaterialDialog(this@MainActivity).input(inputType = InputType.TYPE_NUMBER_FLAG_DECIMAL, maxLength = 4) { _, charSequence ->
                         viewModel.setupBreakfast(charSequence.toString().toInt())
                     }.show {
@@ -89,6 +89,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
                 amEatingCardLunch.setupEatingView(time = it?.lunchTime, calories = it?.lunchCalories, eatingName = getString(R.string.main_lunch)) {
+                    viewModel.selectEating(MainVM.EatingType.LUNCH)
                     MaterialDialog(this@MainActivity).input(inputType = InputType.TYPE_NUMBER_FLAG_DECIMAL, maxLength = 4) { _, charSequence ->
                         viewModel.setupLunch(charSequence.toString().toInt())
                     }.show {
@@ -98,6 +99,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
                 amEatingCardDinner.setupEatingView(time = it?.dinnerTime, calories = it?.dinnerCalories, eatingName = getString(R.string.main_dinner)) {
+                    viewModel.selectEating(MainVM.EatingType.DINNER)
                     MaterialDialog(this@MainActivity).input(inputType = InputType.TYPE_NUMBER_FLAG_DECIMAL, maxLength = 4) { _, charSequence ->
                         viewModel.setupDinner(charSequence.toString().toInt())
                     }.show {
@@ -106,6 +108,11 @@ class MainActivity : AppCompatActivity() {
                         negativeButton(R.string.common_cancel)
                     }
                 }
+            }
+            viewModel.selectedEating.observe(this@MainActivity) {
+                amEatingCardBreakfast.setSelectedState(it == MainVM.EatingType.BREAKFAST)
+                amEatingCardLunch.setSelectedState(it == MainVM.EatingType.LUNCH)
+                amEatingCardDinner.setSelectedState(it == MainVM.EatingType.DINNER)
             }
         }
     }
@@ -168,7 +175,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 val backgroundSet = LineDataSet(backgroundSetData.toList().sortedBy { it.x }, dataSetLabelBackground)
                 backgroundSet.mode = LineDataSet.Mode.CUBIC_BEZIER
-                backgroundSet.cubicIntensity = 0.1f
+                backgroundSet.cubicIntensity = 0.2f
                 backgroundSet.lineWidth = 2f
                 backgroundSet.circleRadius = 2f
                 backgroundSet.setCircleColor(getColor(R.color.black))

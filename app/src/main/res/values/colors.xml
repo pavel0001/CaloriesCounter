@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="waterspout">#94F5F5</color>
     <color name="gray">#A6ACBE</color>
+    <color name="transparent">#000B0B0B</color>
+    <color name="colorScorpion">#47575656</color>
 </resources>

@@ -1,8 +1,6 @@
 package by.valtorn.caloriescounter.ui
 
-import androidx.lifecycle.Transformations
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import by.valtorn.caloriescounter.database.calories.CaloriesDay
 import by.valtorn.caloriescounter.repository.CaloriesRepository
 import kotlinx.coroutines.launch
@@ -17,7 +15,14 @@ class MainVM : ViewModel() {
         it
     }
 
-    fun insert() {
+    private val mSelectedEating = MutableLiveData<EatingType>()
+    val selectedEating: LiveData<EatingType> = mSelectedEating
+
+    fun selectEating(type: EatingType) {
+        mSelectedEating.value = type
+    }
+
+    private fun insert() {
         viewModelScope.launch {
             CaloriesRepository.insertCaloriesDay(
                 CaloriesDay(date = DateTime.now())
@@ -62,5 +67,11 @@ class MainVM : ViewModel() {
                 )
             }
         }
+    }
+
+    enum class EatingType {
+        BREAKFAST,
+        LUNCH,
+        DINNER
     }
 }

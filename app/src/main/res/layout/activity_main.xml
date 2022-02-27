@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:clipChildren="false"
-    android:clipToPadding="false"
+    android:background="@drawable/bg_main_activity"
     tools:context=".ui.MainActivity">
 
     <TextView
@@ -120,34 +119,39 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/am_burn_value" />
 
-    <by.valtorn.caloriescounter.ui.EatingCardView
-        android:id="@+id/am_eating_card_breakfast"
-        style="@style/CaloriesEatingCard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toStartOf="@id/am_eating_card_lunch"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#C0BCD9"
         app:layout_constraintTop_toBottomOf="@id/am_guideline_chart_bottom" />
 
     <by.valtorn.caloriescounter.ui.EatingCardView
+        android:id="@+id/am_eating_card_breakfast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="54dp"
+        app:layout_constraintEnd_toStartOf="@id/am_eating_card_lunch"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/am_guideline_chart_bottom"
+        tools:src="@tools:sample/avatars" />
+
+    <by.valtorn.caloriescounter.ui.EatingCardView
         android:id="@+id/am_eating_card_lunch"
-        style="@style/CaloriesEatingCard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="25dp"
         app:layout_constraintEnd_toStartOf="@id/am_eating_card_dinner"
         app:layout_constraintStart_toEndOf="@id/am_eating_card_breakfast"
-        app:layout_constraintTop_toBottomOf="@id/am_guideline_chart_bottom" />
+        app:layout_constraintTop_toTopOf="@id/am_eating_card_breakfast" />
 
     <by.valtorn.caloriescounter.ui.EatingCardView
         android:id="@+id/am_eating_card_dinner"
-        style="@style/CaloriesEatingCard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/am_eating_card_lunch"
-        app:layout_constraintTop_toBottomOf="@id/am_guideline_chart_bottom" />
+        app:layout_constraintTop_toTopOf="@id/am_eating_card_breakfast" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/am_guideline_header_bottom"

@@ -1,76 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/vec_root"
-    android:layout_width="@dimen/eating_card_width"
-    android:layout_height="@dimen/eating_card_height"
-    android:clickable="true"
-    android:focusable="true"
-    android:foreground="?attr/selectableItemBackground"
-    app:cardElevation="0dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_stroke"
+    android:minWidth="@dimen/eating_card_width"
+    android:minHeight="@dimen/eating_card_height"
+    app:cardCornerRadius="13dp"
     tools:layout_height="170dp"
     tools:layout_width="90dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/vec_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:src="@drawable/ic_add_eating"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <View
-            android:id="@+id/vec_stroke_bg"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+    <TextView
+        android:id="@+id/vec_time"
+        style="@style/CaloriesText.Primary.Little"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="14dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vec_add"
+        tools:text="13:12 am" />
 
-        <ImageView
-            android:id="@+id/vec_add"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:src="@drawable/ic_add_eating"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/vec_calories"
+        style="@style/CaloriesTextBold.Primary.Huge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="14dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vec_time"
+        tools:text="512" />
 
-        <TextView
-            android:id="@+id/vec_time"
-            style="@style/CaloriesText.Primary.Little"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="14dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vec_add"
-            tools:text="13:12 am" />
+    <TextView
+        android:id="@+id/vec_calories_symbol"
+        style="@style/CaloriesTextBold.Primary.Large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/common_calories"
+        app:layout_constraintStart_toStartOf="@id/vec_calories"
+        app:layout_constraintTop_toBottomOf="@id/vec_calories" />
 
-        <TextView
-            android:id="@+id/vec_calories"
-            style="@style/CaloriesTextBold.Primary.Huge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="14dp"
-            android:layout_marginTop="14dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vec_time"
-            tools:text="512" />
-
-        <TextView
-            android:id="@+id/vec_calories_symbol"
-            style="@style/CaloriesTextBold.Primary.Large"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/common_calories"
-            app:layout_constraintStart_toStartOf="@id/vec_calories"
-            app:layout_constraintTop_toBottomOf="@id/vec_calories" />
-
-        <TextView
-            android:id="@+id/vec_eating_name"
-            style="@style/CaloriesText.Primary.Normal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:text="@string/main_breakfast" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.cardview.widget.CardView>
+    <TextView
+        android:id="@+id/vec_eating_name"
+        style="@style/CaloriesText.Primary.Normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="@string/main_breakfast" />
+</androidx.constraintlayout.widget.ConstraintLayout>
